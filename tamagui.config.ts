@@ -22,11 +22,58 @@ const animations = createAnimations({
     damping: 20,
     mass: 1.2,
     stiffness: 250
-  }
+  },
+  tile: {
+    type: "spring",
+    stiffness: 500,
+    damping: 15,
+    mass: .5,
+  },
 });
 
-const headingFont = createInterFont();
-const bodyFont = createInterFont();
+const headingFont = createInterFont({
+  size: {
+    6: 15,
+  },
+  transform: {
+    6: 'uppercase',
+    7: 'none',
+  },
+  weight: {
+    6: '400',
+    7: '700',
+  },
+  color: {
+    6: '$colorFocus',
+    7: '$color',
+  },
+  letterSpacing: {
+    5: 2,
+    6: 1,
+    7: 0,
+    8: -1,
+    9: -2,
+    10: -3,
+    12: -4,
+    14: -5,
+    15: -6,
+  },
+  face: {
+    700: { normal: 'InterBold' },
+  },
+})
+
+const bodyFont = createInterFont(
+  {
+    face: {
+      700: { normal: 'InterBold' },
+    },
+  },
+  {
+    sizeSize: (size) => Math.round(size * 1.1),
+    sizeLineHeight: (size) => Math.round(size * 1.1 + (size > 20 ? 10 : 10)),
+  }
+)
 
 const config = createTamagui({
   animations,
@@ -63,7 +110,7 @@ export type AppConfig = typeof config;
 declare module "tamagui" {
   // overrides TamaguiCustomConfig so your custom types
   // work everywhere you import `tamagui`
-  interface TamaguiCustomConfig extends AppConfig {}
+  interface TamaguiCustomConfig extends AppConfig { }
 }
 
 export default config;

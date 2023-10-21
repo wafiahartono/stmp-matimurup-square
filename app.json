@@ -1,14 +1,16 @@
 {
   "expo": {
     "scheme": "tamagui-app",
-    "userInterfaceStyle": "automatic",
-    "splash": {
-      "backgroundColor": "#ddffe2",
-      "image": "./assets/splash.png",
-      "resizeMode": "contain"
-    },
+    "userInterfaceStyle": "dark",
     "icon": "./assets/icon.png",
-    "name": "stmp-matimurup-square",
-    "slug": "stmp-matimurup-square"
+    "name": "MatiMurup Square",
+    "slug": "stmp-matimurup-square",
+    "orientation": "portrait",
+    "android": {
+      "package": "test.s160419098.stmp.mms"
+    },
+    "splash": {
+      "backgroundColor": "#000000"
+    },
   }
 }
